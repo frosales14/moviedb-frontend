@@ -8,6 +8,7 @@ import { MovieCard } from "./MovieCard";
 import { PageSelector } from "@/shared/components/PageSelector";
 import { PaginationInfo } from "@/shared/components/PaginationInfo";
 import { Pagination } from "@/shared/components/Pagination";
+import { SearchBar } from "@/shared/components/SearchBar";
 
 
 
@@ -62,7 +63,7 @@ export const MovieList = ({
 
     return (
         <>
-            {/* <SearchBar placeHolder="Search movies by name or actor name" onSearch={handleSearch} /> */}
+            <SearchBar placeHolder="Search movies by name or actor name" onSearch={handleSearch} />
 
             {/* Search results info */}
             {searchTerm.trim() && (
