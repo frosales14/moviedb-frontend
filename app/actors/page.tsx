@@ -1,5 +1,8 @@
 import { ActorList } from '@/actor/components/ActorList';
 import { ActorService } from '@/actor/services/actorService';
+import { Actor } from '@/models/interfaces/movie.interface';
+import { IPagination } from '@/models/interfaces/pagination.interface';
+import Link from 'next/link';
 
 interface ActorsPageProps {
     searchParams: Promise<{
@@ -15,8 +18,8 @@ export default async function ActorsPage({ searchParams }: ActorsPageProps) {
     const limit = parseInt(params.limit || '12');
     const search = params.search || '';
 
-    let actors: any[] = [];
-    let pagination: any = null;
+    let actors: Actor[] = [];
+    let pagination: IPagination | null = null;
     let error: string | null = null;
 
     try {
@@ -40,12 +43,12 @@ export default async function ActorsPage({ searchParams }: ActorsPageProps) {
             <div className="min-h-screen bg-gray-50 flex items-center justify-center">
                 <div className="text-center">
                     <div className="text-red-600 mb-4">Error: {error}</div>
-                    <a
+                    <Link
                         href="/actors"
                         className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
                     >
                         Retry
-                    </a>
+                    </Link>
                 </div>
             </div>
         );
